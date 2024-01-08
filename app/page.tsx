@@ -12,7 +12,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <div className="relative h-full">
+      <div className="h-full">
         <HomeBar />
       </div>
     </>

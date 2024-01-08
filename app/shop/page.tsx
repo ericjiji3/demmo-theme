@@ -1,4 +1,4 @@
-import { getProducts } from 'lib/shopify';
+import { getCollectionProducts } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,19 +19,28 @@ export async function generateMetadata({
 }
 
 export default async function ShopPage() {
-    const products = await getProducts({});
-    // products.map((product, i)=>{
-    //     console.log('product: ' + product.title);
-    // });
+    const products = await getCollectionProducts({collection: 'shop'});
+    console.log(products);
+    products.map((product, i)=>{
+        console.log( product.images);
+    });
 
 return (
     <>
-    
+    <div className="grid grid-cols-4 gap-x-4 text-white">
+
     {products.map((product, i)=>{
         return(
             <div key={i}>
-                <Image src={product.featuredImage.url} alt="oops" width={product.featuredImage.width/4} height={product.featuredImage.height/4}/>
                 <div>
+                    <Image
+                        src={product.images[0]!.url}
+                        width={product.images[0]!.width}
+                        height={product.images[0]!.height}
+                        alt={product.images[0]!.altText}
+                    />
+                </div>
+                <div className="flex justify-between p-4">
                     <span>{product.title}</span>
                     <span>${product.priceRange.maxVariantPrice.amount}</span>
                     <Link href={`/product/${product.handle}`}>
@@ -43,7 +52,7 @@ return (
             </div>
         )
     })};
-    <h1 className="mb-8 text-5xl font-bold">SHOP</h1>
+
     {/* <p className="text-sm italic">
         {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
         year: 'numeric',
@@ -51,6 +60,8 @@ return (
         day: 'numeric'
         }).format(new Date(page.updatedAt))}.`}
     </p> */}
+            
+    </div>
     </>
 );
 }

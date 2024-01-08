@@ -1,15 +1,15 @@
-import { getMenu } from 'lib/shopify';
+"use client";
 import Image from 'next/image';
 import Logo from 'public/demmo-logo-white.png';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
 export default async function Footer() {
-  const currentYear = new Date().getFullYear();
-  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
-  const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
-  const menu = await getMenu('next-js-frontend-footer-menu');
-  const copyrightName = COMPANY_NAME || SITE_NAME || '';
+  // const currentYear = new Date().getFullYear();
+  // const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
+  // const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
+  // const menu = await getMenu('next-js-frontend-footer-menu');
+  // const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
     <footer className="bg-black p-4">
