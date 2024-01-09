@@ -22,9 +22,12 @@ function SubmitButton({
 
   if (!availableForSale) {
     return (
-      <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
+      // <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
+      //   Out Of Stock
+      // </button>
+      <div>
         Out Of Stock
-      </button>
+      </div>
     );
   }
 
@@ -33,7 +36,7 @@ function SubmitButton({
       <button
         aria-label="Please select an option"
         aria-disabled
-        className={clsx(buttonClasses, disabledClasses)}
+        className=""
       >
         <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
@@ -50,15 +53,17 @@ function SubmitButton({
       }}
       aria-label="Add to cart"
       aria-disabled={pending}
-      className={clsx(buttonClasses, {
+      className={clsx('text-white', {
         'hover:opacity-90': true,
         disabledClasses: pending
       })}
     >
-      <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+      <div className="">
+        {pending ? <LoadingDots className="mb-3 bg-white" /> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+</svg>
+}
       </div>
-      Add To Cart
     </button>
   );
 }
@@ -82,7 +87,7 @@ export function AddToCart({
   const actionWithVariant = formAction.bind(null, selectedVariantId);
 
   return (
-    <form action={actionWithVariant}>
+    <form action={actionWithVariant} className="flex items-center ml-5">
       <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
       <p aria-live="polite" className="sr-only" role="status">
         {message}

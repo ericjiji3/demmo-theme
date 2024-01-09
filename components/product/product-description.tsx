@@ -10,19 +10,23 @@ export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
     <div className='grid grid-cols-3 px-4 py-9'>
-    <div className='pl-8 flex'>
-    <VariantSelector options={product.options} variants={product.variants} />
-    {product.descriptionHtml ? (
+    <div className='pl-8 flex items-center'>
+    <div className="relative">
+      <VariantSelector options={product.options} variants={product.variants} />
+    </div>
+    
+    {product.descriptionHtml && product.descriptionHtml != '<p></p>' ? (
         <Prose
           className="text-white"
           html={product.descriptionHtml}
         />
+
       ) : null}
     <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
     </div>
     
       <div className="text-white text-center">
-        <h1 className="mb-2 text-5xl font-medium">{product.title}</h1>
+        <div className="mb-2 font-medium">{product.title}</div>
         <div className="text-white">
           <Price
             amount={product.priceRange.maxVariantPrice.amount}
