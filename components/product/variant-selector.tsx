@@ -43,11 +43,17 @@ export function VariantSelector({
 
   const showSizes = () => {
     setToggle(!toggle);
-  }
+  };
 
   return options.map((option) => (
     <dl className="relative" key={option.id}>
-      <dd className={toggle ? "absolute flex flex-col-reverse flex-col flex-wrap gap-3 bottom-[37px] py-2 left-0 w-full bg-black text-white border border-white border-b-0" : "hidden"}>
+      <dd
+        className={
+          toggle
+            ? 'absolute bottom-[37px] left-0 flex w-full flex-col flex-col-reverse flex-wrap gap-3 border border-b-0 border-white bg-black py-2 text-white'
+            : 'hidden'
+        }
+      >
         {option.values.map((value) => {
           const optionNameLowerCase = option.name.toLowerCase();
 
@@ -91,34 +97,41 @@ export function VariantSelector({
                 router.replace(optionUrl, { scroll: false });
               }}
               title={`${option.name} ${value}${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
-              className={clsx(
-                'flex min-w-[48px] items-center px-2 py-1 text-sm justify-center',
-                {
-                  'cursor-default ring-2 ring-white': isActive,
-                  'ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-white ':
-                    !isActive && isAvailableForSale,
-                  'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 before:dark:bg-neutral-700':
-                    !isAvailableForSale
-                }
-              )}
+              className={clsx('flex min-w-[48px] items-center justify-center px-2 py-1 text-sm', {
+                'cursor-default ring-2 ring-white': isActive,
+                'ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-white ':
+                  !isActive && isAvailableForSale,
+                'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 before:dark:bg-neutral-700':
+                  !isAvailableForSale
+              })}
             >
               {value}
             </button>
           );
         })}
       </dd>
-      <dt className={toggle ? "flex items-center text-sm uppercase tracking-wide text-white px-12 py-2 border border-white border-t-0" : "flex items-center text-sm uppercase tracking-wide text-white px-12 py-2 border border-white"} onClick={showSizes}>
-        <div>
-          {option.name}
-        </div>
-        
-        <div className={toggle ? "ml-2 rotate-180" : "ml-2"}>
+      <dt
+        className={
+          toggle
+            ? 'flex items-center border border-t-0 border-white px-12 py-2 text-sm uppercase tracking-wide text-white hover:cursor-pointer'
+            : 'flex items-center border border-white px-12 py-2 text-sm uppercase tracking-wide text-white hover:cursor-pointer'
+        }
+        onClick={showSizes}
+      >
+        <div>{option.name}</div>
+
+        <div className={toggle ? 'ml-2 rotate-180' : 'ml-2'}>
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
-            <path id="Polygon_1" data-name="Polygon 1" d="M6.5,0,13,10H0Z" transform="translate(13 10) rotate(180)" fill="#fff"/>
+            <path
+              id="Polygon_1"
+              data-name="Polygon 1"
+              d="M6.5,0,13,10H0Z"
+              transform="translate(13 10) rotate(180)"
+              fill="#fff"
+            />
           </svg>
         </div>
       </dt>
-      
     </dl>
   ));
 }

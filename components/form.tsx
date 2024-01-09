@@ -17,30 +17,24 @@ const Form: FC = () => {
 
   return (
     <form className="container" onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-5">
-        <label htmlFor="email" className="mb-3 block text-base font-medium text-black">
-          Email Address
-        </label>
+      <div className="mb-3">
         <input
           type="email"
-          placeholder="example@domain.com"
-          className="w-full rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
+          placeholder="EMAIL"
+          className="w-full border border-black bg-white p-3 text-base font-medium text-gray-700 outline-none focus:shadow-md"
           {...register('email', { required: true })}
         />
       </div>
-      <div className="mb-5">
-        <label htmlFor="message" className="mb-3 block text-base font-medium text-black">
-          Message
-        </label>
+      <div className="mb-3">
         <textarea
           rows={4}
-          placeholder="Type your message"
-          className="w-full resize-none rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
+          placeholder="MESSAGE US..."
+          className="h-full w-full resize-none border border-black bg-white p-3 text-base font-medium text-gray-700 outline-none focus:shadow-md"
           {...register('message', { required: true })}
         ></textarea>
       </div>
       <div>
-        <button className="hover:shadow-form rounded-md bg-purple-500 px-8 py-3 text-base font-semibold text-white outline-none">
+        <button className="hover:shadow-form w-full bg-black px-8 py-3 text-base font-semibold text-white outline-none">
           Submit
         </button>
       </div>

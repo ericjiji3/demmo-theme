@@ -7,12 +7,12 @@ export const revalidate = 43200; // 12 hours in seconds
 
 export default async function ContactPage() {
   return (
-    <div className='relative'>
-      <Image src={Bg} width={2048} height={1362} alt="oops" className="w-full"/>
-      <div className='absolute top-[50%] left-[50%]'>
-      <Form />
+    <div className="relative">
+      <Image src={Bg} width={2048} height={1362} alt="oops" className="w-full" />
+      <div className="absolute left-[50%] top-[10%] w-[50%] pr-6">
+        <Form />
       </div>
-      
+
       {/* <p className="text-sm italic">
         {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
         year: 'numeric',

@@ -1,6 +1,5 @@
 'use client';
 
-import { PlusIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -25,23 +24,25 @@ function SubmitButton({
       // <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
       //   Out Of Stock
       // </button>
-      <div>
-        Out Of Stock
-      </div>
+      <div>Out Of Stock</div>
     );
   }
 
   if (!selectedVariantId) {
     return (
-      <button
-        aria-label="Please select an option"
-        aria-disabled
-        className=""
-      >
-        <div className="absolute left-0 ml-4">
-          <PlusIcon className="h-5" />
+      <button aria-label="Please select an option" aria-disabled className="pointer-events-none">
+        <div className="text-white opacity-60">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
         </div>
-        Add To Cart
       </button>
     );
   }
@@ -59,10 +60,20 @@ function SubmitButton({
       })}
     >
       <div className="">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-</svg>
-}
+        {pending ? (
+          <LoadingDots className="mb-3 bg-white" />
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        )}
       </div>
     </button>
   );
@@ -87,7 +98,7 @@ export function AddToCart({
   const actionWithVariant = formAction.bind(null, selectedVariantId);
 
   return (
-    <form action={actionWithVariant} className="flex items-center ml-5">
+    <form action={actionWithVariant} className="ml-5 flex items-center">
       <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
       <p aria-live="polite" className="sr-only" role="status">
         {message}

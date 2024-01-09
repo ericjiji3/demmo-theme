@@ -22,7 +22,7 @@ const HomeBar: FC = () => {
   };
 
   return (
-    <div className={toggle ? "relative h-full" : "absolute h-screen w-full top-0 z-[-1]"}>
+    <div className={toggle ? 'relative h-full' : 'absolute top-0 z-[-1] h-screen w-full'}>
       <div className="relative h-full">
         <Image
           src={homeBG}
@@ -43,7 +43,7 @@ const HomeBar: FC = () => {
           <Image src={bg8} width={1000} height={655} alt="oops" />
           <Image src={bg9} width={1000} height={655} alt="oops" />
         </div>
-        <div className={toggle ? "relative" : "absolute bottom-0 w-full"}>
+        <div className={toggle ? 'relative' : 'absolute bottom-0 w-full'}>
           <div className="flex w-full items-center justify-between bg-black p-4">
             <div onClick={toggleHome}>
               <svg
@@ -101,13 +101,24 @@ const HomeBar: FC = () => {
                 </g>
               </svg>
 
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className={toggle ? 'block' : 'hidden'}>
-                <g id="Rectangle_6" data-name="Rectangle 6" fill="none" stroke="#fff" stroke-width="2">
-                  <rect width="24" height="24" stroke="none"/>
-                  <rect x="1" y="1" width="22" height="22" fill="none"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className={toggle ? 'block' : 'hidden'}
+              >
+                <g
+                  id="Rectangle_6"
+                  data-name="Rectangle 6"
+                  fill="none"
+                  stroke="#fff"
+                  strokeWidth="2"
+                >
+                  <rect width="24" height="24" stroke="none" />
+                  <rect x="1" y="1" width="22" height="22" fill="none" />
                 </g>
               </svg>
-
             </div>
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14">
@@ -127,11 +138,9 @@ const HomeBar: FC = () => {
               </svg>
             </div>
           </div>
-              <Footer/>
+          <Footer />
         </div>
-        
       </div>
-      
     </div>
   );
 };
