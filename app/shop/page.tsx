@@ -25,7 +25,7 @@ export default async function ShopPage() {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-x-4 text-white">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-4 text-white">
         {products.map((product, i) => {
           return (
             <div key={i}>

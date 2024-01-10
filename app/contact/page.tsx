@@ -8,8 +8,8 @@ export const revalidate = 43200; // 12 hours in seconds
 export default async function ContactPage() {
   return (
     <div className="relative">
-      <Image src={Bg} width={2048} height={1362} alt="oops" className="w-full" />
-      <div className="absolute left-[50%] top-[10%] w-[50%] pr-6">
+      <Image src={Bg} width={2048} height={1362} alt="oops" className="w-full h-[87vh] object-cover object-[10%] polg:h-full" />
+      <div className="w-full absolute top-[5%] left-[50%] text-center px-5 translate-x-[-50%] md:transform-none md:w-[50%] md:pr-6">
         <Form />
       </div>
 

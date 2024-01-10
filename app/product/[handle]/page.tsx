@@ -1,5 +1,6 @@
 import { GridTileImage } from 'components/grid/tile';
 import Footer from 'components/layout/footer';
+import { Gallery } from "components/product/gallery";
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
@@ -79,27 +80,20 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      {/* <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-black md:p-12 lg:flex-row lg:gap-8">
-          <div className="h-full w-full basis-full lg:basis-4/6">
+      <div className="md:hidden">
+        <div className="">
+          <div className="">
             <Gallery
-              images={product.images.map((image: Image) => ({
+              images={product.images.map((image) => ({
                 src: image.url,
                 altText: image.altText
               }))}
             />
           </div>
-
-          <div className="basis-full lg:basis-2/6">
-            <ProductDescription product={product} />
-          </div>
         </div>
-        <Suspense>
-          <RelatedProducts id={product.id} />
-        </Suspense>
-      </div> */}
-      <div className="bg-black">
-        <div className="grid grid-cols-3 gap-x-1">
+      </div>
+      <div className="bg-black flex flex-col justify-center h-full lg:block md:h-screen xl:h-full">
+        <div className="hidden md:grid grid-cols-3 gap-x-1">
           {product.images.map((image, i)=>{
             return(
               <div key={i}>

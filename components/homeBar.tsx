@@ -32,7 +32,8 @@ const HomeBar: FC = () => {
           className={toggle ? 'hidden' : 'block h-full w-full object-cover'}
         />
 
-        <div className={toggle ? 'grid grid-cols-3' : 'hidden'}>
+        <div className={toggle ? 'relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'hidden'}>
+          <div className={toggle ? "absolute h-full w-screen bg-black/40" : "hdden"}></div>
           <Image src={bg1} width={1000} height={655} alt="oops" />
           <Image src={bg2} width={1000} height={655} alt="oops" />
           <Image src={bg3} width={1000} height={655} alt="oops" />
@@ -43,8 +44,8 @@ const HomeBar: FC = () => {
           <Image src={bg8} width={1000} height={655} alt="oops" />
           <Image src={bg9} width={1000} height={655} alt="oops" />
         </div>
-        <div className={toggle ? 'relative' : 'absolute bottom-0 w-full'}>
-          <div className="flex w-full items-center justify-between bg-black p-4">
+        <div className={toggle ? 'fixed bottom-0 w-full md:relative' : 'absolute bottom-0 w-full z-[1]'}>
+          <div className="flex w-full items-center justify-between bg-transparent md:bg-black p-4">
             <div onClick={toggleHome}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +139,10 @@ const HomeBar: FC = () => {
               </svg>
             </div>
           </div>
+          <div className="hidden md:block">
           <Footer />
+          </div>
+          
         </div>
       </div>
     </div>

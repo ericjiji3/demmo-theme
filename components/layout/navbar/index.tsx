@@ -14,10 +14,24 @@ export default async function Navbar() {
 
   return (
     <nav className="relative text-white flex h-full items-center justify-between bg-black p-4 lg:px-6">
-      <div className="block flex-none md:hidden">
-        <MobileMenu menu={menu} />
+      <div className="relative flex justify-between w-full items-center md:hidden">
+        
+          
+          <MobileMenu menu={menu} />
+          <Link href="/" className="absolute left-[50%] translate-x-[-50%]">
+            <div>
+              <Image src={Logo} width={100} alt="oops" />
+            </div>
+          </Link>
+          <div className='relative'>
+          <Suspense fallback={<OpenCart />}>
+            <Cart />
+          </Suspense>
+          </div>
+          
+        
       </div>
-      <div className="flex w-full items-center">
+      <div className="hidden md:flex w-full items-center">
         <div className="flex w-full md:w-1/2">
           {/* <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
             <LogoSquare />
@@ -29,7 +43,7 @@ export default async function Navbar() {
             href="/shop"
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
+            <div className="ml-2 flex-none text-sm font-medium uppercase lg:block">
               SHOP
             </div>
           </Link>
@@ -37,7 +51,7 @@ export default async function Navbar() {
             href="/contact"
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
+            <div className="ml-2 flex-none text-sm font-medium uppercase lg:block">
               CONTACT
             </div>
           </Link>

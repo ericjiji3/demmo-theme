@@ -24,7 +24,7 @@ function SubmitButton({
       // <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
       //   Out Of Stock
       // </button>
-      <div>Out Of Stock</div>
+      <div className="text-white">OUT OF STOCK</div>
     );
   }
 
