@@ -6,12 +6,12 @@ import Link from 'next/link';
 import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {
-  console.log(product.descriptionHtml);
+  
   return (
     <>
-      <div className="grid grid-cols-3 items-center px-4 py-9">
+      <div className="flex flex-col-reverse py-5 md:grid grid-cols-3 items-center px-4 md:py-9">
         <div className="flex items-center pl-8">
-          <div className="relative">
+          <div className="py-4 md:py-0 relative">
             <VariantSelector options={product.options} variants={product.variants} />
           </div>
 
@@ -21,7 +21,7 @@ export function ProductDescription({ product }: { product: Product }) {
           <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
         </div>
 
-        <div className="text-center text-white">
+        <div className="flex w-full justify-between md:block md:text-center text-white">
           <div className="mb-2 font-medium">{product.title}</div>
           <div className="text-white">
             <Price
@@ -30,7 +30,7 @@ export function ProductDescription({ product }: { product: Product }) {
             />
           </div>
         </div>
-        <Link className="pr-8 text-right text-white" href="/shop">
+        <Link className="hidden md:block pr-8 text-right text-white" href="/shop">
           BACK TO SHOP
         </Link>
       </div>

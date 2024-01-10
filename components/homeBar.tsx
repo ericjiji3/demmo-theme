@@ -22,7 +22,8 @@ const HomeBar: FC = () => {
   };
 
   return (
-    <div className={toggle ? 'relative h-full' : 'absolute top-0 z-[-1] h-screen w-full'}>
+    <div className={toggle ? 'relative h-full' : 'absolute top-0 z-[-1] h-[100dvh] w-full'}>
+      
       <div className="relative h-full">
         <Image
           src={homeBG}
@@ -33,7 +34,7 @@ const HomeBar: FC = () => {
         />
 
         <div className={toggle ? 'relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'hidden'}>
-          <div className={toggle ? "absolute h-full w-screen bg-black/40" : "hdden"}></div>
+          <div className={toggle ? "absolute h-full w-screen bg-black/40" : "hidden"}></div>
           <Image src={bg1} width={1000} height={655} alt="oops" />
           <Image src={bg2} width={1000} height={655} alt="oops" />
           <Image src={bg3} width={1000} height={655} alt="oops" />

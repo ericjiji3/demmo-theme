@@ -27,7 +27,7 @@ const Form: FC = () => {
       </div>
       <div className="mb-3">
         <textarea
-          rows={20}
+          rows={10}
           placeholder="MESSAGE US..."
           className="h-full w-full resize-none border border-black bg-white p-3 text-base font-medium text-gray-700 outline-none focus:shadow-md"
           {...register('message', { required: true })}
