@@ -14,6 +14,11 @@
   }
 }
 
+@font-face {
+  font-family: "Helvetica Pro";
+  src: url("../fonts/HelveticaMonospaced/HelveticaMonospacedPro-Rg.otf");
+}
+
 a,
 input,
 button {

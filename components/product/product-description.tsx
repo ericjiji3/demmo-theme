@@ -22,8 +22,8 @@ export function ProductDescription({ product }: { product: Product }) {
         </div>
 
         <div className="flex w-full justify-between md:block md:text-center text-white">
-          <div className="mb-2 font-medium">{product.title}</div>
-          <div className="text-white">
+          <div className="mb-2 text-lg">{product.title}</div>
+          <div className="text-white text-lg">
             <Price
               amount={product.priceRange.maxVariantPrice.amount}
               currencyCode={product.priceRange.maxVariantPrice.currencyCode}

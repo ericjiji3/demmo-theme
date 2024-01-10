@@ -18,7 +18,7 @@ const HomeBar: FC = () => {
 
   const toggleHome = () => {
     setToggle(!toggle);
-    console.log('toggle');
+ 
   };
 
   return (
@@ -34,7 +34,7 @@ const HomeBar: FC = () => {
         />
 
         <div className={toggle ? 'relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'hidden'}>
-          <div className={toggle ? "absolute h-full w-screen bg-black/40" : "hidden"}></div>
+          <div className={toggle ? "absolute h-full w-screen bg-black/40 z-2" : "hidden"}></div>
           <Image src={bg1} width={1000} height={655} alt="oops" />
           <Image src={bg2} width={1000} height={655} alt="oops" />
           <Image src={bg3} width={1000} height={655} alt="oops" />
@@ -45,7 +45,7 @@ const HomeBar: FC = () => {
           <Image src={bg8} width={1000} height={655} alt="oops" />
           <Image src={bg9} width={1000} height={655} alt="oops" />
         </div>
-        <div className={toggle ? 'fixed bottom-0 w-full md:relative' : 'absolute bottom-0 w-full z-[1]'}>
+        <div className={toggle ? 'fixed bottom-0 w-full md:relative z-[3]' : 'absolute bottom-0 w-full z-[3]'}>
           <div className="flex w-full items-center justify-between bg-transparent md:bg-black p-4">
             <div onClick={toggleHome}>
               <svg

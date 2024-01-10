@@ -1,7 +1,6 @@
 'use client';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { sendEmail } from 'utils/send-email';
 
 export type FormData = {
   email: string;
@@ -11,12 +10,16 @@ export type FormData = {
 const Form: FC = () => {
   const { register, handleSubmit } = useForm<FormData>();
 
-  function onSubmit(data: FormData) {
-    sendEmail(data);
+  async function onSubmit(event : any) {
+    console.log(event);
+    const response = await fetch('/api/email', {
+      method: 'POST',
+      body: event,
+    })
   }
 
   return (
-    <form className="container mx-auto" onSubmit={handleSubmit(onSubmit)}>
+    <form className="container mx-auto" method="post" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">
         <input
           type="email"
@@ -34,7 +37,7 @@ const Form: FC = () => {
         ></textarea>
       </div>
       <div>
-        <button className="hover:shadow-form w-full bg-black px-8 py-3 text-base font-semibold text-white outline-none">
+        <button type='submit' className="hover:shadow-form w-full bg-black px-8 py-3 text-base font-semibold text-white outline-none">
           Submit
         </button>
       </div>
