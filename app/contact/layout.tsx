@@ -1,4 +1,5 @@
 import Footer from 'components/layout/footer';
+import Navbar from 'components/layout/navbar';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
@@ -16,13 +17,13 @@ export async function generateMetadata({
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Suspense>
-        <div className="w-full ">
-          <div>
-            <Suspense>{children}</Suspense>
-          </div>
+      <Navbar />
+      <div className="w-full ">
+        <div>
+          <Suspense>{children}</Suspense>
         </div>
-        <Footer />
-      
+      </div>
+      <Footer />
     </Suspense>
   );
 }

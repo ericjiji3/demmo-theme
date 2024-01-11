@@ -1,4 +1,3 @@
-import Navbar from 'components/layout/navbar';
 import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
 import { ReactNode, Suspense } from 'react';
@@ -35,14 +34,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en" className={GeistSans.variable}>
       <body className="relative h-full">
-        <div>
-          <Navbar />
-        </div>
-
         <Suspense>
           <main>{children}</main>
         </Suspense>
-
       </body>
     </html>
   );
