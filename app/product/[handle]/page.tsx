@@ -1,6 +1,6 @@
 import { GridTileImage } from 'components/grid/tile';
 import Footer from 'components/layout/footer';
-import { Gallery } from "components/product/gallery";
+import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
@@ -73,7 +73,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   };
 
   return (
-    <>
+    <div className="h-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -92,10 +92,10 @@ export default async function ProductPage({ params }: { params: { handle: string
           </div>
         </div>
       </div>
-      <div className="bg-black flex flex-col justify-center h-full lg:block md:h-screen xl:h-full">
-        <div className="hidden md:grid grid-cols-3 gap-x-1">
-          {product.images.map((image, i)=>{
-            return(
+      <div className="flex flex-col justify-center bg-black md:h-screen lg:block xl:h-full">
+        <div className="hidden grid-cols-3 gap-x-1 md:grid">
+          {product.images.map((image, i) => {
+            return (
               <div key={i}>
                 <Image
                   src={image.url}
@@ -105,17 +105,17 @@ export default async function ProductPage({ params }: { params: { handle: string
                   className="w-full"
                 />
               </div>
-            )
+            );
           })}
         </div>
-        <div>
-        <ProductDescription product={product} />
+        <div className="py-3">
+          <ProductDescription product={product} />
         </div>
       </div>
       <Suspense>
         <Footer />
       </Suspense>
-    </>
+    </div>
   );
 }
 

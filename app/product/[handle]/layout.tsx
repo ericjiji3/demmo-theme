@@ -17,8 +17,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Suspense>
       <Navbar />
-      <div className="w-full">
-        <div>
+      <div className="h-[90vh] w-full md:h-full">
+        <div className="h-full">
           <Suspense>{children}</Suspense>
         </div>
       </div>

@@ -32,12 +32,17 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="relative h-full">
-        <Suspense>
-          <main>{children}</main>
-        </Suspense>
-      </body>
-    </html>
+    <>
+      <head>
+        <link rel="icon" href="/icon.png" sizes="any" />
+      </head>
+      <html lang="en" className={GeistSans.variable}>
+        <body className="relative h-full">
+          <Suspense>
+            <main>{children}</main>
+          </Suspense>
+        </body>
+      </html>
+    </>
   );
 }
