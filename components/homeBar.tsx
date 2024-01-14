@@ -85,7 +85,7 @@ const HomeBar: FC = () => {
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
             onClick={pauseAudio}
           >
-            <div className="ml-2 flex-none text-sm font-medium uppercase mix-blend-difference lg:block">
+            <div className="ml-2 flex-none text-xs font-medium uppercase mix-blend-difference md:text-sm lg:block">
               SHOP
             </div>
           </Link>
@@ -94,7 +94,7 @@ const HomeBar: FC = () => {
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
             onClick={pauseAudio}
           >
-            <div className="ml-2 flex-none text-sm font-medium uppercase mix-blend-difference lg:block">
+            <div className="ml-2 flex-none text-xs font-medium uppercase mix-blend-difference md:text-sm lg:block">
               CONTACT
             </div>
           </Link>
@@ -110,6 +110,7 @@ const HomeBar: FC = () => {
                 viewBox="0,0,256,256"
                 width="25px"
                 height="25px"
+                className="w-[15px] md:w-[25px]"
               >
                 <g
                   fill="#ffffff"
@@ -134,7 +135,13 @@ const HomeBar: FC = () => {
             </div>
           </Link>
           <div onClick={playAudio} className={play ? 'hidden' : 'block cursor-pointer'}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17.5" viewBox="0 0 15 17.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="17.5"
+              viewBox="0 0 15 17.5"
+              className="w-[10px] md:w-[15px]"
+            >
               <g
                 id="Polygon_7"
                 data-name="Polygon 7"
@@ -151,7 +158,13 @@ const HomeBar: FC = () => {
             </svg>
           </div>
           <div onClick={pauseAudio} className={play ? 'mr-1 block cursor-pointer' : 'hidden'}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="14"
+              viewBox="0 0 11 14"
+              className="w-[8px] md:w-[14px]"
+            >
               <g id="Group_106" data-name="Group 106" transform="translate(-1802 -1040)">
                 <line
                   id="Line_8"
