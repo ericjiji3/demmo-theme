@@ -9,14 +9,17 @@ export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
       <div className="flex grid-cols-3 flex-col-reverse items-center px-4 py-5 md:grid">
-        <div className="flex items-center pl-8">
-          <div className="relative py-4 md:py-0">
-            <VariantSelector options={product.options} variants={product.variants} />
+        <div className="flex w-full items-center justify-between md:justify-start">
+          <div className="flex items-center">
+            <div className="relative py-2 md:py-0">
+              <VariantSelector options={product.options} variants={product.variants} />
+            </div>
+
+            {product.descriptionHtml && product.descriptionHtml != '<p></p>' ? (
+              <Prose className="text-white" html={product.descriptionHtml} />
+            ) : null}
           </div>
 
-          {product.descriptionHtml && product.descriptionHtml != '<p></p>' ? (
-            <Prose className="text-white" html={product.descriptionHtml} />
-          ) : null}
           <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
         </div>
 

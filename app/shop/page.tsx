@@ -28,14 +28,15 @@ export default async function ShopPage() {
       <div className="grid grid-cols-1 gap-x-4 text-white md:grid-cols-3 lg:grid-cols-4">
         {products.map((product, i) => {
           return (
-            <div key={i}>
-              <Link href={`/product/${product.handle}`}>
-                <div>
+            <div key={i} className="block h-full">
+              <Link href={`/product/${product.handle}`} className="block h-full">
+                <div className="">
                   <Image
                     src={product.images[0]!.url}
                     width={product.images[0]!.width}
                     height={product.images[0]!.height}
                     alt={product.images[0]!.altText}
+                    className=""
                   />
                 </div>
                 <div className="flex justify-between p-4 text-sm">

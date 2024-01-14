@@ -113,8 +113,8 @@ export function VariantSelector({
       <dt
         className={
           toggle
-            ? 'flex items-center border border-t-0 border-white px-12 py-2 text-sm uppercase tracking-wide text-white hover:cursor-pointer'
-            : 'flex items-center border border-white px-12 py-2 text-sm uppercase tracking-wide text-white hover:cursor-pointer'
+            ? 'flex items-center border border-t-0 border-white px-6 py-2 text-sm uppercase tracking-wide text-white hover:cursor-pointer'
+            : 'flex items-center border border-white px-6 py-2 text-sm uppercase tracking-wide text-white hover:cursor-pointer'
         }
         onClick={showSizes}
       >
