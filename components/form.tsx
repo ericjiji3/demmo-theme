@@ -20,22 +20,32 @@ const Form = () => {
     //   message: e.target.message.value
     // })
     // console.log(data);
-    const response = await fetch('/api/email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: e.target.email.value, message: e.target.message.value })
-    });
-
-    if (response.status === 200) {
-      // setData({
-      //   email: "",
-      //   message: "",
-      // });
-      // setStatus('SENT');
-      // console.log(response);
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/email', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: e.target.email.value, message: e.target.message.value })
+      });
+      if (response.status == 200) {
+        setStatus('SENT');
+        return response.json();
+      }
+    } catch (ex) {
+      console.log(ex);
     }
+
+    // if (response.status === 201) {
+    // setData({
+    //   email: "",
+    //   message: "",
+    // });
+    // setStatus('SENT');
+    // console.log(response);
+    // }
+    // return;
     // console.log('huh: ', response);
   };
 

@@ -13,7 +13,7 @@ export default async function Footer() {
   // const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="flex justify-between bg-black p-4">
+    <footer className="flex items-center justify-between bg-black p-4">
       <Link href="/">
         <Image src={Logo} width={75} alt="oops" />
       </Link>
