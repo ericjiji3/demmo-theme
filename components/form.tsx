@@ -19,7 +19,7 @@ const Form = () => {
     //   email: e.target.email.value,
     //   message: e.target.message.value
     // })
-    console.log(data);
+    // console.log(data);
     const response = await fetch('/api/email', {
       method: 'POST',
       headers: {
@@ -33,9 +33,10 @@ const Form = () => {
       //   email: "",
       //   message: "",
       // });
-      setStatus('SENT');
-      return;
+      // setStatus('SENT');
+      // console.log(response);
     }
+    // console.log('huh: ', response);
   };
 
   return (
