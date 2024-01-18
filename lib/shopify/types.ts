@@ -128,6 +128,45 @@ export type ShopifyProduct = {
   updatedAt: string;
 };
 
+export type Customer = {
+  input: {
+    email: string;
+    phone?: string;
+    firstName: string;
+    lastName: string;
+    acceptsMarketing: boolean;
+    addresses: [
+      {
+        address1?: string;
+        city?: string;
+        province?: string;
+        phone?: string;
+        zip?: string;
+        lastName: string;
+        firstName: string;
+        country: 'US';
+      }
+    ];
+  };
+};
+
+export type ShopifyCustomerCreateOperation = {
+  data: {
+    customer: Customer;
+  };
+  variables: {
+    input: {
+      email: string;
+      acceptsMarketing: true;
+      addresses: [
+        {
+          country: string;
+        }
+      ];
+    };
+  };
+};
+
 export type ShopifyCartOperation = {
   data: {
     cart: ShopifyCart;
