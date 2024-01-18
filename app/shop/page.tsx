@@ -1,7 +1,7 @@
 import { getCollectionProducts } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import Logo from '../../public/demmo-logo-white.png';
 export const runtime = 'edge';
 export const revalidate = 43200; // 12 hours in seconds
 
@@ -25,7 +25,13 @@ export default async function ShopPage() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-x-4 text-white md:grid-cols-3 lg:grid-cols-4">
+      <div className="h-screen w-full bg-black text-white">
+        <div className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
+          <Image src={Logo} width={150} alt="oops" className="mx-auto mb-5" />
+          <h2>COMING SOON</h2>
+        </div>
+      </div>
+      {/* <div className="grid grid-cols-1 gap-x-4 text-white md:grid-cols-3 lg:grid-cols-4">
         {products.map((product, i) => {
           return (
             <div key={i} className="block h-full">
@@ -46,16 +52,16 @@ export default async function ShopPage() {
               </Link>
             </div>
           );
-        })}
+        })} */}
 
-        {/* <p className="text-sm italic">
+      {/* <p className="text-sm italic">
         {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
         }).format(new Date(page.updatedAt))}.`}
     </p> */}
-      </div>
+      {/* </div> */}
     </>
   );
 }

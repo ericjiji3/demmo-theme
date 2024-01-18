@@ -1,84 +1,19 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
-import bg0 from 'public/home/DEMMMO02.png';
-import bg1 from 'public/home/home2/DEMMO01.jpg';
-import bg2 from 'public/home/home2/DEMMO02.jpg';
-import bg3 from 'public/home/home2/DEMMO03.jpg';
-import bg4 from 'public/home/home2/DEMMO04.jpg';
-import bg5 from 'public/home/home2/DEMMO05.jpg';
-import bg6 from 'public/home/home2/DEMMO06.jpg';
-import bg7 from 'public/home/home2/DEMMO07.jpg';
-import bg8 from 'public/home/home2/DEMMO08.jpg';
-import bg9 from 'public/home/home2/DEMMO09.jpg';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import 'react-h5-audio-player/lib/styles.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import Logo from '../public/demmo-logo-white.png';
 
 const HomeBar: FC = () => {
-  const [base, setBase] = useState(true);
-  const [scrollDown, setScrollDown] = useState(false);
-  const [scrollUp, setScrollUp] = useState(false);
-  const [init, setInit] = useState(true);
-  const [navStyle, setNavStyle] = useState(
-    'fixed z-[10] flex w-full items-center justify-between bg-black/0 p-4 lg:px-6'
-  );
-  const [down, setDown] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [play, setPlay] = useState(false);
-  const [audio, setAudio]: any = useState(null);
-  let oldScrollY = 0;
-
-  useEffect(() => {
-    setAudio(new Audio('/sounds/demmo-audio.mp3'));
-  }, []);
-  const playAudio = () => {
-    setPlay(true);
-    setInit(false);
-    audio.play();
-    console.log('playing');
-  };
-  const pauseAudio = () => {
-    setPlay(false);
-    audio.pause();
-    console.log('playing');
-  };
-  const handleScroll = () => {
-    // setToggle(!toggle);
-
-    console.log(window.scrollY);
-    if (window.scrollY == 0) {
-      setBase(true);
-      setScrollDown(false);
-      setScrollUp(false);
-      setNavStyle(
-        'fixed z-[10] flex w-full items-center justify-between opacity-1 bg-black/[.75] transition duration-200 ease-in p-4 lg:px-6 '
-      );
-    } else if (window.scrollY - oldScrollY < 0) {
-      setBase(false);
-      setScrollDown(true);
-      setScrollUp(false);
-      setNavStyle(
-        'fixed z-[10] flex w-full items-center justify-between opacity-1 bg-black/[.75] transition duration-200 ease-in p-4 lg:px-6'
-      );
-    } else {
-      setBase(false);
-      setScrollDown(false);
-      setScrollUp(true);
-      setNavStyle(
-        'fixed z-[10] flex w-full items-center justify-between opacity-0 transition duration-200 ease-in p-4 lg:px-6'
-      );
-    }
-    oldScrollY = window.scrollY;
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.addEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <div className="relative h-full">
-      <div className={navStyle}>
+    <div className="relative h-screen w-full bg-black text-white">
+      <div className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
+        <Image src={Logo} width={150} alt="oops" className="mx-auto mb-5" />
+        <h2>COMING SOON</h2>
+      </div>
+
+      {/* <div className={navStyle}>
         <div className="flex h-[44px] text-white">
           <Link
             href="/shop"
@@ -191,7 +126,7 @@ const HomeBar: FC = () => {
             <audio src="/sounds/demmo-audio.mp3" />
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="absolute z-[10] h-screen">
         <Carousel>
@@ -260,7 +195,7 @@ const HomeBar: FC = () => {
                 </div>
             </Carousel>
       </div> */}
-      <div className="relative h-full">
+      {/* <div className="relative h-full">
         <Image
           src={bg0}
           width={1920}
@@ -330,8 +265,8 @@ const HomeBar: FC = () => {
           height={1277}
           className="block h-full w-full object-cover"
           alt="oops"
-        />
-        {/* <div className={toggle ? 'relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'hidden'}>
+        /> */}
+      {/* <div className={toggle ? 'relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'hidden'}>
           <div className={toggle ? "absolute h-full w-screen bg-black/40 z-2" : "hidden"}></div>
           <Image src={bg1} width={1000} height={655} alt="oops" />
           <Image src={bg2} width={1000} height={655} alt="oops" />
@@ -344,10 +279,10 @@ const HomeBar: FC = () => {
           <Image src={bg9} width={1000} height={655} alt="oops" />
         </div> */}
 
-        {/* <div className="hidden md:block">
+      {/* <div className="hidden md:block">
           <Footer />
           </div> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 };
