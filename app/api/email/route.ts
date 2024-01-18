@@ -6,8 +6,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const body = await request.json();
 
-    const { email, message } = body;
-    const htmlMessage = '<p>Email: ' + email + '</p><p>Message: ' + message + '</p>';
+    const { email } = body;
+    const htmlMessage = '<p>Email: ' + email + '</p>';
     const data = await resend.emails.send({
       from: 'info@demmocorp.com',
       to: 'info@demmocorp.com',

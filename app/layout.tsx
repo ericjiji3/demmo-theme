@@ -1,8 +1,10 @@
+import Form from 'components/form';
 import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
+import Image from 'next/image';
 import { ReactNode, Suspense } from 'react';
+import Logo from '../public/demmo-logo-white.png';
 import './globals.css';
-
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
@@ -37,9 +39,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <link rel="icon" href="/icon.png" sizes="any" />
       </head>
       <html lang="en" className={GeistSans.variable}>
-        <body className="relative h-full">
+        <body className="relative h-screen bg-black text-white">
           <Suspense>
-            <main>{children}</main>
+            <main className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] ">
+              <div className="text-center">
+                <Image src={Logo} width={150} alt="oops" className="mx-auto mb-5" />
+                <h2>COMING SOON</h2>
+              </div>
+              <Form />
+            </main>
           </Suspense>
         </body>
       </html>
