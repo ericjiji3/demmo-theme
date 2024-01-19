@@ -1,5 +1,4 @@
 import HomeBar from 'components/homeBar';
-
 export const runtime = 'edge';
 
 export const metadata = {

@@ -10,6 +10,7 @@ import {
   editCartItemsMutation,
   removeFromCartMutation
 } from './mutations/cart';
+import { createCustomer } from './mutations/customer';
 import { getCartQuery } from './queries/cart';
 import {
   getCollectionProductsQuery,
@@ -27,6 +28,7 @@ import {
   Cart,
   Collection,
   Connection,
+  Customer,
   Image,
   Menu,
   Page,
@@ -39,6 +41,7 @@ import {
   ShopifyCollectionProductsOperation,
   ShopifyCollectionsOperation,
   ShopifyCreateCartOperation,
+  ShopifyCustomerCreateOperation,
   ShopifyMenuOperation,
   ShopifyPageOperation,
   ShopifyPagesOperation,
@@ -200,6 +203,21 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
 
   return reshapedProducts;
 };
+
+export async function createACustomer(input: {
+  email: string;
+  acceptsMarketing: boolean;
+  addresses: [{ country: string }];
+}): Promise<Customer> {
+  const res = await shopifyFetch<ShopifyCustomerCreateOperation>({
+    query: createCustomer,
+    variables: {
+      input
+    },
+    cache: 'no-store'
+  });
+  return res.body.data.customer;
+}
 
 export async function createCart(): Promise<Cart> {
   const res = await shopifyFetch<ShopifyCreateCartOperation>({

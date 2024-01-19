@@ -130,21 +130,21 @@ export type ShopifyProduct = {
 
 export type Customer = {
   input: {
-    email: string;
+    email?: string;
     phone?: string;
-    firstName: string;
-    lastName: string;
-    acceptsMarketing: boolean;
-    addresses: [
+    firstName?: string;
+    lastName?: string;
+    acceptsMarketing?: boolean;
+    addresses?: [
       {
         address1?: string;
         city?: string;
         province?: string;
         phone?: string;
         zip?: string;
-        lastName: string;
-        firstName: string;
-        country: 'US';
+        lastName?: string;
+        firstName?: string;
+        country?: string;
       }
     ];
   };
@@ -157,7 +157,7 @@ export type ShopifyCustomerCreateOperation = {
   variables: {
     input: {
       email: string;
-      acceptsMarketing: true;
+      acceptsMarketing: boolean;
       addresses: [
         {
           country: string;
