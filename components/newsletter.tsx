@@ -24,7 +24,7 @@ const Newsletter = () => {
       });
       if (response.status == 200) {
         console.log(response);
-        if (response.statusText != 'OK') {
+        if (response.statusText != 'OK' && response.statusText != '') {
           setStatus(response.statusText);
         } else {
           setStatus('SENT');
