@@ -13,8 +13,6 @@ export const createCustomer = /* GraphQL */ `
         acceptsMarketing
         firstName
         lastName
-        ordersCount
-        totalSpent
         smsMarketingConsent {
           marketingState
           marketingOptInLevel

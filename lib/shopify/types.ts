@@ -128,42 +128,49 @@ export type ShopifyProduct = {
   updatedAt: string;
 };
 
-export type Customer = {
-  input: {
-    email?: string;
-    phone?: string;
-    firstName?: string;
-    lastName?: string;
+export type CustomerInput = {
+  customer: {
+    email?: string | undefined;
+    phone?: string | undefined;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
     acceptsMarketing?: boolean;
-    addresses?: [
-      {
-        address1?: string;
-        city?: string;
-        province?: string;
-        phone?: string;
-        zip?: string;
-        lastName?: string;
-        firstName?: string;
-        country?: string;
-      }
-    ];
+    addresses?: {
+      address1?: string | undefined;
+      city?: string | undefined;
+      province?: string | undefined;
+      phone?: string | undefined;
+      zip?: string | undefined;
+      lastName?: string | undefined;
+      firstName?: string | undefined;
+      country?: string | undefined;
+    };
   };
+  // {
+  //   address1?: string | undefined;
+  //   city?: string | undefined;
+  //   province?: string | undefined;
+  //   phone?: string | undefined;
+  //   zip?: string | undefined;
+  //   lastName?: string | undefined;
+  //   firstName?: string | undefined;
+  //   country?: string | undefined;
+  // }
 };
 
 export type ShopifyCustomerCreateOperation = {
   data: {
-    customer: Customer;
+    customer: CustomerInput;
   };
   variables: {
-    input: {
-      email: string;
-      acceptsMarketing: boolean;
-      addresses: [
-        {
-          country: string;
-        }
-      ];
-    };
+    customer: CustomerInput;
+    // email: string;
+    // acceptsMarketing: boolean;
+    // addresses: [
+    //   {
+    //     country: string;
+    //   }
+    // ];
   };
 };
 

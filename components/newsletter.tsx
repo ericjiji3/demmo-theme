@@ -1,5 +1,4 @@
 'use client';
-import { createACustomer } from 'lib/shopify';
 import Image from 'next/image';
 import Bg from 'public/DEMMO01.jpg';
 import { useState } from 'react';
@@ -18,17 +17,17 @@ const Newsletter = () => {
   const sendEmail = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await createACustomer({
-        email: e.target.email.value,
-        acceptsMarketing: true,
-        addresses: [
-          {
-            country: 'US'
-          }
-        ]
+      const response = await fetch('/api/newsletter', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: e.target.email.value })
       });
-      setStatus('SENT');
-      return response.input;
+      if (response.status == 200) {
+        setStatus('SENT');
+        return response.json();
+      }
     } catch (ex) {
       console.log(ex);
     }
