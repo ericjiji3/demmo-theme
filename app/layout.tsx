@@ -1,4 +1,4 @@
-import Form from 'components/form';
+import Newsletter from 'components/newsletter';
 import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
 import Image from 'next/image';
@@ -46,7 +46,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
                 <Image src={Logo} width={150} alt="oops" className="mx-auto mb-5" />
                 <h2>COMING SOON</h2>
               </div>
-              <Form />
+              <Newsletter />
             </main>
           </Suspense>
         </body>
