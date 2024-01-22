@@ -43,7 +43,7 @@ const Password = () => {
             viewBox="0 0 34 54"
             fill="none"
           >
-            <path d="M0.999999 52L31 27L0.999999 2" stroke="white" stroke-width="3" />
+            <path d="M0.999999 52L31 27L0.999999 2" stroke="white" strokeWidth="3" />
           </svg>
         </button>
       </form>
