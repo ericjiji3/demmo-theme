@@ -26,6 +26,7 @@
     "@heroicons/react": "^2.0.18",
     "@types/nodemailer": "^6.4.14",
     "clsx": "^2.0.0",
+    "cookie": "^0.6.0",
     "geist": "^1.0.0",
     "next": "14.0.0",
     "nodemailer": "^6.9.8",
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
+    "@types/cookie": "^0.6.0",
     "@types/node": "20.8.9",
     "@types/react": "18.2.33",
     "@types/react-dom": "18.2.14",

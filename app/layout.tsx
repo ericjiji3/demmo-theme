@@ -1,5 +1,6 @@
 import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
+import { cookies } from 'next/headers';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
 
@@ -31,6 +32,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+  const cookiesStore = cookies();
+  const loginCookies = cookiesStore.get(process.env.PASSWORD_COOKIE_NAME!);
+  const isLoggedIn = !!loginCookies?.value;
   return (
     <>
       <head>
