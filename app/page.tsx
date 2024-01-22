@@ -29,7 +29,7 @@ export default async function HomePage() {
             </div>
             <Newsletter />
           </main>
-          <div className="absolute bottom-[5%] left-[50%] translate-x-[-50%]">
+          <div className="absolute bottom-[20%] left-[50%] translate-x-[-50%]">
             <Password />
           </div>
         </div>
