@@ -12,7 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-import Logo from '../../public/demmo-logo-white.png';
+import Logo from '../../../public/demmo-logo-white.png';
 
 export const runtime = 'edge';
 
