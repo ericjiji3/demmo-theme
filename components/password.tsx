@@ -31,7 +31,7 @@ const Password = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="mr-1 p-2 text-black"
+          className="mr-2 w-full border border-black bg-white p-2 text-base font-medium text-gray-700 outline-none focus:shadow-md"
           placeholder="PASSWORD"
         />
         <button type="submit">
