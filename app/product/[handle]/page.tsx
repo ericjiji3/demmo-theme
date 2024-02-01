@@ -1,7 +1,5 @@
 import { GridTileImage } from 'components/grid/tile';
 import Footer from 'components/layout/footer';
-import Newsletter from 'components/newsletter';
-import Password from 'components/password';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
@@ -12,7 +10,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-import Logo from '../../../public/demmo-logo-white.png';
 
 export const runtime = 'edge';
 
@@ -77,70 +74,52 @@ export default async function ProductPage({ params }: { params: { handle: string
       lowPrice: product.priceRange.minVariantPrice.amount
     }
   };
-  if (!isLoggedIn) {
-    return (
-      <>
-        <div className="relative h-screen bg-black text-white">
-          <main className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] ">
-            <div className="text-center">
-              <Image src={Logo} width={150} alt="oops" className="mx-auto mb-5" />
-              <h2>COMING SOON</h2>
-            </div>
-            <Newsletter />
-          </main>
-          <div className="absolute bottom-[20%] left-[50%] translate-x-[-50%]">
-            <Password />
-          </div>
-        </div>
-      </>
-    );
-  } else {
-    return (
-      <div className="h-full">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(productJsonLd)
-          }}
-        />
-        <div className="md:hidden">
+
+  return (
+    <div className="h-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productJsonLd)
+        }}
+      />
+      <div className="md:hidden">
+        <div className="">
           <div className="">
-            <div className="">
-              <Gallery
-                images={product.images.map((image) => ({
-                  src: image.url,
-                  altText: image.altText
-                }))}
-              />
-            </div>
+            <Gallery
+              images={product.images.map((image) => ({
+                src: image.url,
+                altText: image.altText
+              }))}
+            />
           </div>
         </div>
-        <div className="flex flex-col justify-center bg-black md:h-screen lg:block xl:h-full">
-          <div className="hidden grid-cols-3 gap-x-1 md:grid">
-            {product.images.map((image, i) => {
-              return (
-                <div key={i}>
-                  <Image
-                    src={image.url}
-                    width={image.width}
-                    height={image.height}
-                    alt={image.altText}
-                    className="w-full"
-                  />
-                </div>
-              );
-            })}
-          </div>
-          <div className="py-3">
-            <ProductDescription product={product} />
-          </div>
-        </div>
-        <Suspense>
-          <Footer />
-        </Suspense>
       </div>
-    );
-  }
+      <div className="flex flex-col justify-center bg-black md:h-screen lg:block xl:h-full">
+        <div className="hidden grid-cols-3 gap-x-1 md:grid">
+          {product.images.map((image, i) => {
+            return (
+              <div key={i}>
+                <Image
+                  src={image.url}
+                  width={image.width}
+                  height={image.height}
+                  alt={image.altText}
+                  className="w-full"
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div className="py-3">
+          <ProductDescription product={product} />
+        </div>
+      </div>
+      <Suspense>
+        <Footer />
+      </Suspense>
+    </div>
+  );
 }
 
 async function RelatedProducts({ id }: { id: string }) {
