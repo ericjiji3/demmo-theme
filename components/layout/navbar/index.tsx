@@ -18,7 +18,7 @@ export default async function Navbar() {
         <MobileMenu menu={menu} />
         <Link href="/" className="absolute left-[50%] translate-x-[-50%]">
           <div>
-            <Image src={Logo} width={100} alt="oops" />
+            <Image src={Logo} width={100} alt="oops" className="w-[75px] md:w-[100px]" />
           </div>
         </Link>
         <div className="relative">

@@ -1,16 +1,17 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import bg0 from 'public/home/DEMMMO02.png';
-import bg1 from 'public/home/home2/DEMMO01.jpg';
-import bg2 from 'public/home/home2/DEMMO02.jpg';
-import bg3 from 'public/home/home2/DEMMO03.jpg';
-import bg4 from 'public/home/home2/DEMMO04.jpg';
-import bg5 from 'public/home/home2/DEMMO05.jpg';
-import bg6 from 'public/home/home2/DEMMO06.jpg';
-import bg7 from 'public/home/home2/DEMMO07.jpg';
-import bg8 from 'public/home/home2/DEMMO08.jpg';
-import bg9 from 'public/home/home2/DEMMO09.jpg';
+import bg8 from 'public/home/home2/DEMMO010.jpg';
+import bg9 from 'public/home/home2/DEMMO011.jpg';
+import bg10 from 'public/home/home2/DEMMO012.jpg';
+import bg7 from 'public/home/home2/DEMMO02.jpg';
+import bg1 from 'public/home/home2/DEMMO03.jpg';
+import bg2 from 'public/home/home2/DEMMO04.jpg';
+import bg0 from 'public/home/home2/DEMMO05.jpg';
+import bg4 from 'public/home/home2/DEMMO06.jpg';
+import bg5 from 'public/home/home2/DEMMO07.jpg';
+import bg6 from 'public/home/home2/DEMMO08.jpg';
+import bg3 from 'public/home/home2/DEMMO09.jpg';
 import { FC, useEffect, useState } from 'react';
 import 'react-h5-audio-player/lib/styles.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
@@ -326,6 +327,13 @@ const HomeBar: FC = () => {
         />
         <Image
           src={bg9}
+          width={1920}
+          height={1277}
+          className="block h-full w-full object-cover"
+          alt="oops"
+        />
+        <Image
+          src={bg10}
           width={1920}
           height={1277}
           className="block h-full w-full object-cover"
