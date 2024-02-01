@@ -135,7 +135,7 @@ const HomeBar: FC = () => {
               </svg>
             </div>
           </Link>
-          <div onClick={playAudio} className={play ? 'hidden' : 'block cursor-pointer'}>
+          {/* <div onClick={playAudio} className={play ? 'hidden' : 'block cursor-pointer'}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15"
@@ -187,7 +187,7 @@ const HomeBar: FC = () => {
                 />
               </g>
             </svg>
-          </div>
+          </div> */}
           <div>
             <audio src="/sounds/demmo-audio.mp3" />
           </div>
