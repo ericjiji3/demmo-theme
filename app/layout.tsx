@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <>
       <head>
         <link rel="icon" href="/icon.png" sizes="any" />
-        <meta property="og:image" content="/icon.png" />
+        {/* <meta property="og:image" content="/icon.png" /> */}
       </head>
       <html lang="en" className={GeistSans.variable}>
         <body className="relative h-full">

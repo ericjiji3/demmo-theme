@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 export const runtime = 'edge';
 
 export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
+  description: 'DEMMO CO',
   openGraph: {
     type: 'website'
   }
