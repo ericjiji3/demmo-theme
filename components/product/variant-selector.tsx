@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { ProductOption, ProductVariant } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Combination = {
   id: string;
@@ -40,9 +40,16 @@ export function VariantSelector({
   }));
 
   const [toggle, setToggle] = useState(false);
+  const [label, setLabel] = useState('Size');
+  useEffect(() => {
+    options.map((option) => {
+      setLabel(option.name);
+    });
+  }, []);
 
   const showSizes = () => {
     setToggle(!toggle);
+    console.log(toggle);
   };
 
   return options.map((option) => (
@@ -94,12 +101,14 @@ export function VariantSelector({
               aria-disabled={!isAvailableForSale}
               disabled={!isAvailableForSale}
               onClick={() => {
+                setLabel(value);
                 router.replace(optionUrl, { scroll: false });
+                showSizes();
               }}
               title={`${option.name} ${value}${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
               className={clsx('flex min-w-[48px] items-center justify-center px-2 py-1 text-sm', {
                 'cursor-default ring-2 ring-white': isActive,
-                'ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-white ':
+                'ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-white':
                   !isActive && isAvailableForSale,
                 'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 before:dark:bg-neutral-700':
                   !isAvailableForSale
@@ -118,7 +127,8 @@ export function VariantSelector({
         }
         onClick={showSizes}
       >
-        <div>{option.name}</div>
+        {/* <div>{option.name}dkslajo</div> */}
+        <div>{label}</div>
 
         <div className={toggle ? 'ml-2 rotate-180' : 'ml-2'}>
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">

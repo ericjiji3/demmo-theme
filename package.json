@@ -24,6 +24,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@shopify/hydrogen-react": "^2024.1.0",
     "@types/nodemailer": "^6.4.14",
     "clsx": "^2.0.0",
     "cookie": "^0.6.0",
