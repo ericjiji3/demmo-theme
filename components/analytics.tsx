@@ -5,13 +5,11 @@ import {
   ShopifyPageViewPayload,
   ShopifySalesChannel,
   getClientBrowserParameters,
-  sendShopifyAnalytics,
-  useShop
+  sendShopifyAnalytics
 } from '@shopify/hydrogen-react';
 
 import { useEffect } from 'react';
 const ShopifyAnalytics = () => {
-  const { id: shopId } = useShop();
   function sendPageView(analyticsPageData: ShopifyPageViewPayload) {
     const payload = {
       ...getClientBrowserParameters(),
