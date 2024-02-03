@@ -39,42 +39,37 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
           />
         )}
 
+        {images.length > 1 ? <div className="hidden"></div> : null}
         {images.length > 1 ? (
-          <div className='hidden'></div>
-          
+          <ul className="absolute bottom-[-5%] left-[50%] my-12 flex translate-x-[-50%] items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
+            {images.map((image, index) => {
+              const isActive = index === imageIndex;
+              const imageSearchParams = new URLSearchParams(searchParams.toString());
+
+              imageSearchParams.set('image', index.toString());
+              // 30 10
+              return (
+                <li key={image.src} className="h-30 w-10">
+                  <Link
+                    aria-label="Enlarge product image"
+                    href={createUrl(pathname, imageSearchParams)}
+                    scroll={false}
+                    className="h-full w-full"
+                  >
+                    <GridTileImage
+                      alt={image.altText}
+                      src={image.src}
+                      width={50}
+                      height={75}
+                      active={isActive}
+                    />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         ) : null}
-        {images.length > 1 ? (
-        <ul className="absolute bottom-[-5%] left-[50%] translate-x-[-50%] my-12 flex items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
-          {images.map((image, index) => {
-            const isActive = index === imageIndex;
-            const imageSearchParams = new URLSearchParams(searchParams.toString());
-
-            imageSearchParams.set('image', index.toString());
-
-            return (
-              <li key={image.src} className="h-30 w-10">
-                <Link
-                  aria-label="Enlarge product image"
-                  href={createUrl(pathname, imageSearchParams)}
-                  scroll={false}
-                  className="h-full w-full"
-                >
-                  <GridTileImage
-                    alt={image.altText}
-                    src={image.src}
-                    width={10}
-                    height={30}
-                    active={isActive}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
       </div>
-
-      
     </>
   );
 }
